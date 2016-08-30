@@ -11,3 +11,14 @@ function diamond(n) {
   }    
   return diam;
 }
+
+//Должна считать кол-ство совпадений в тексте
+function duplicateCount(text){
+  //...
+str=Array.from(text);
+  var matc='';
+str.forEach(function(s) {
+  if (text.match(RegExp(s, "gi")).length>1 && !RegExp(s, "gi").test(matc)) {matc+=s;}
+ });
+return matc.length;
+}
