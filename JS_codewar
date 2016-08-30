@@ -1,0 +1,13 @@
+//Должна возвращать ромб из *
+function diamond(n) {
+  if (n%2===0 || n < 0 ) {return null}
+  
+  diam=Array(n);
+  var k=-1;
+  for(var i=0; i<n; i++){
+    if(i+1<(n+1)/2) {diam[i]=' '.repeat((n-i-k-2)/2)+'*'.repeat(i+k+2)+'\n'.repeat(1); var k=i;}
+    else if (i+1===(n+1)/2){diam[i]='*'.repeat(n)+'\n'.repeat(1); }
+    else {  diam[i]=diam[n-1-i]; }
+  }    
+  return diam;
+}
