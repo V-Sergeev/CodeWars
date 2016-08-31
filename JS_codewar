@@ -35,3 +35,12 @@ function list(names){
   }
   return str.replace(/, $/, '');
 }
+
+//азбука морзе, MORSE_CODE - таблица сопоставления(где-то там)
+  decodeMorse = function(morseCode){
+    
+  return morseCode.replace(/^ */,'').replace(/(   )/g,' _ ').split(' ').map(function(s){
+  if(s==='_'){return ' ';} else
+    return MORSE_CODE[s];
+}).join('');
+}
