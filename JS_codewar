@@ -44,3 +44,69 @@ function list(names){
     return MORSE_CODE[s];
 }).join('');
 }
+
+
+/**
+ * Utility class for Harshad numbers (also called Niven numbers).
+ *
+ * @namespace Harshad
+ */
+var Harshad = ( function() {
+  'use strict';
+
+  return {
+    /**
+     * Returns true when the given number is a valid Harshad number.
+     *
+     * @param {Number} number The given number
+     * @returns {Boolean}
+     * @function Harshad.isValid
+     */
+    isValid: function( number ) {
+      // Your implementation goes here
+    if(typeof number==='number'){
+      return number % String(number).split('').reduce(function(a,b){return Number(a)+Number(b)})===0;}
+      
+      
+    
+    },
+    /**
+     * Gets the next Harshad number after the given number.
+     *
+     * @param {Number} number The given number
+     * @returns {Number}
+     * @function Harshad.getNext
+     */
+    getNext: function( number ) {
+      // Your implementation goes here
+   var  n=number+1;
+    while(!Harshad.isValid(n)) {n++;}
+ return n
+    
+    
+    },
+    /**
+     * Returns the suite of Harshad numbers, starting after a given number.
+     *
+     * @param {Number} count The number of elements to return
+     * @param {Number} start The number after which the serie should start;
+     *  defaults to 0
+     * @returns {Array}
+     * @function Harshad.getSerie
+     */
+    getSerie: function( count, start ) {
+      // Your implementation goes here
+    start=start||0;
+      var res=[];
+      
+      var item=start;
+      for(var i=0;i<=count-1;i++){
+       res.push(Harshad.getNext(item));
+        item=res[i];
+          }
+    return res;
+    }
+  };
+
+} () );
+
